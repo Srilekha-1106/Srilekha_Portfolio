@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Srilekha Devineedi | Data Engineer Portfolio</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: #fcfcfe;
+      color: #222;
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    /* ---------- Header (Gradient) ---------- */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 10%;
+      background: linear-gradient(90deg, #4b4cc0, #6c6de0);
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    nav h1 {
+      font-size: 1rem;
+      letter-spacing: 2px;
+      font-weight: 600;
+      color: white;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: 400;
+      transition: opacity 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      opacity: 0.8;
+    }
+
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 4rem 10%;
+      background: linear-gradient(180deg, #f3f4ff 0%, #ffffff 90%);
+    }
+
+    .hero-text {
+      flex: 1 1 400px;
+      padding-right: 2rem;
+    }
+
+    .hero-text h2 {
+      font-size: 2.2rem;
+      margin-bottom: 1.2rem;
+      color: #222;
+    }
+
+    .hero-text p {
+      margin-bottom: 1.2rem;
+      color: #333;
+    }
+
+    /* --- Button Styles --- */
+    .btn-primary,
+    .btn-outline {
+      display: inline-block;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      margin-right: 1rem;
+      border: 1px solid #5e60ce;
+      color: #5e60ce;
+      background-color: transparent;
+    }
+
+    .btn-primary:hover,
+    .btn-outline:hover {
+      background-color: #5e60ce;
+      color: white;
+      transform: scale(1.05);
+      box-shadow: 0 5px 12px rgba(94, 96, 206, 0.3);
+    }
+
+    .hero-img {
+      flex: 1 1 300px;
+      text-align: center;
+    }
+
+    .hero-img img {
+      width: 550px;
+      height: 420px;
+      border-radius: 16px;
+      object-fit: cover;
+      box-shadow: 0 10px 25px rgba(94, 96, 206, 0.25);
+      border: 5px solid #ffffff;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .hero-img img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 30px rgba(94, 96, 206, 0.35);
+    }
+
+    .section {
+      padding: 3rem 10%;
+      border-top: 1px solid #eee;
+    }
+
+    .section h3 {
+      font-size: 1.6rem;
+      margin-bottom: 1.5rem;
+      color: #333;
+    }
+
+    /* ---------- Timeline Style ---------- */
+    .timeline {
+      position: relative;
+      margin: 2rem 0;
+      padding-left: 40px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 15px;
+      width: 3px;
+      height: 100%;
+      background: linear-gradient(180deg, #5e60ce, #b197fc);
+      border-radius: 5px;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2.5rem;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      top: 10px;
+      left: 8px;
+      width: 15px;
+      height: 15px;
+      background-color: #5e60ce;
+      border: 3px solid #fff;
+      border-radius: 50%;
+      box-shadow: 0 0 0 3px rgba(94, 96, 206, 0.2);
+      z-index: 2;
+    }
+
+    .timeline-card {
+      background: #fafaff;
+      border: 1px solid #e6e6fa;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(94, 96, 206, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .timeline-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(94, 96, 206, 0.15);
+    }
+
+    .timeline-card h4 {
+      margin-bottom: 0.5rem;
+      color: #222;
+    }
+
+    .timeline-card p {
+      margin-bottom: 0.4rem;
+      color: #444;
+    }
+
+    .timeline-card ul {
+      margin-top: 0.5rem;
+      padding-left: 1.2rem;
+    }
+
+    .timeline-card ul li {
+      color: #333;
+      margin-bottom: 0.3rem;
+    }
+
+    /* ---------- Projects ---------- */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      border: 1px solid #e7e7e7;
+      border-radius: 10px;
+      padding: 1.5rem;
+      background-color: #fafaff;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 4px 15px rgba(94, 96, 206, 0.15);
+    }
+
+    .project-card h4 {
+      margin-bottom: 0.5rem;
+      color: #2b2b2b;
+    }
+
+    .project-card p {
+      margin-bottom: 0.8rem;
+      font-size: 0.95rem;
+      color: #444;
+    }
+
+    .project-card a {
+      text-decoration: none;
+      color: #5e60ce;
+      font-weight: 500;
+    }
+
+    /* ---------- Footer with Contact Form ---------- */
+    footer {
+      text-align: center;
+      padding: 3rem 10%;
+      background: linear-gradient(180deg, #e7e8ff, #ffffff);
+      border-top: 1px solid #ddd;
+      color: #444;
+    }
+
+    footer h3 {
+      color: #333;
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+    }
+
+    footer form {
+      max-width: 500px;
+      margin: 1.5rem auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    footer input, footer textarea {
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    footer button {
+      background-color: #5e60ce;
+      color: white;
+      border: none;
+      padding: 0.8rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    footer button:hover {
+      background-color: #4b4cc0;
+    }
+
+    footer a {
+      text-decoration: none;
+      color: #5e60ce;
+      font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-text {
+        padding-right: 0;
+      }
+
+      .hero-img img {
+        width: 80%;
+        height: auto;
+        margin-top: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <h1>SRILEKHA DEVINEEDI</h1>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#beyond-the-code">Beyond the Code</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero" id="about">
+    <div class="hero-text">
+      <h2>Hello! I'm Srilekha, a Data Engineer based in the USA.</h2>
+      <p>
+        I build scalable data pipelines and cloud solutions that make analytics simpler, faster, and more impactful.  
+        I’ve worked on projects across Azure Databricks, Data Factory, and Synapse — automating workflows, optimizing ETL processes, and enabling data-driven decisions through visualization and governance.
+      </p>
+      <p>
+        I recently graduated with a Master’s in Computer Science from the University of Massachusetts Lowell (Class of 2025),
+        where I specialized in data engineering, cloud computing, and intelligent automation.
+      </p>
+      <a href="https://www.linkedin.com/in/srilekha-devineedi-608028211/" target="_blank" class="btn-primary">View LinkedIn</a>
+      <a href="https://github.com/Srilekha-1106" target="_blank" class="btn-outline">View GitHub</a>
+    </div>
+
+    <div class="hero-img">
+      <img src="images\srilekha.jpeg" alt="Srilekha Devineedi">
+    </div>
+  </section>
+
+  <section class="section" id="education">
+    <h3>Education</h3>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <h4>🎓 Master of Science in Computer Science</h4>
+          <p><strong>University of Massachusetts Lowell</strong> | Lowell, MA</p>
+          <p><em>August 2023 – May 2025</em></p>
+          <p><strong>GPA:</strong> 3.74 / 4.0</p>
+          <ul>
+            <li>Specialized in Data Engineering, Cloud Computing, and Intelligent Automation.</li>
+            <li>Coursework: Algorithms, Database Systems, Data Mining, Operating Systems.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <h4>🎓 Bachelor of Technology in Computer Science & Engineering</h4>
+          <p><strong>Gayatri Vidya Parishad College of Engineering</strong> | Visakhapatnam, India</p>
+          <p><em>June 2019 – May 2023</em></p>
+          <p><strong>GPA:</strong> 9.06 / 10</p>
+          <ul>
+            <li>Focused on Database Management, Java, and Web Development.</li>
+            <li>Coursework: DBMS, Data Structures, HTML, CSS, and JavaScript.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="experience">
+    <h3>Experience</h3>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <h4>💼 Data Engineer Intern</h4>
+          <p><strong>Logan Data Inc.</strong> | Remote, USA</p>
+          <p><em>July 2025 – Sept 2025</em></p>
+          <ul>
+            <li>Designed and orchestrated scalable ETL pipelines in Azure Databricks using medallion architecture (Bronze, Silver, Gold layers), 
+                enhancing data reliability and reducing processing latency by 45%.</li>
+            <li>Automated data transformation workflows with scheduled notebooks and jobs, decreasing manual processing time by 60% and 
+                ensuring consistent pipeline execution.</li>
+            <li>Enforced robust schema mapping and validation logic, improving data quality and accuracy by 35%. </li>
+            <li>Optimized Apache Spark jobs for complex batch workflows, improving performance and reducing execution time by 40%.</li>
+            <li>Created detailed technical documentation of pipeline architecture and processes, accelerating team onboarding by 50%.</li>
+            <li>Leveraged generative and agentic AI to streamline day-to-day workflows. Auto-drafted PySpark/SQL, suggested DQ rules, 
+                summarized job failures, and opened PRs, boosting developer productivity by 30% and cutting incident triage time by 25%.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <h4>💼 Testing Center Analyst</h4>
+          <p><strong>University of Massachusetts Lowell</strong> | Lowell, MA, USA</p>
+          <p><em>Sep 2023 – May 2025</em></p>
+          <ul>
+            <li>Resolved technical issues for students and staff, maintaining a 95% satisfaction rate through prompt and consistent support.</li>
+            <li>Provided real-time troubleshooting during exams, reducing unexpected system disruptions by over 90% across sessions.</li>
+            <li>Ensured timely setup and proactive maintenance of testing environments, contributing to a 98% exam readiness rate.</li>
+            <li>Reported and clearly documented recurring system issues, improving resolution time by 35% through effective coordination.</li>    
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="projects">
+    <h3>Projects</h3>
+    <div class="projects">
+      <div class="project-card">
+        <h4>End-to-End Data Integration & Transformation</h4>
+        <p>Built automated ETL pipelines and Power BI dashboards using Azure Data Factory and Azure SQL.</p>
+        <a href="#">View on GitHub →</a>
+      </div>
+
+      <div class="project-card">
+        <h4>Client Transaction & Revenue Tracking</h4>
+        <p>Developed a Power Apps + Power BI solution enabling real-time tracking and financial reporting.</p>
+        <a href="#">View on GitHub →</a>
+      </div>
+
+      <div class="project-card">
+        <h4>Data Processing & Analysis Using Azure Synapse</h4>
+        <p>Transformed raw datasets with PySpark and built dashboards to analyze unemployment trends.</p>
+        <a href="#">View on GitHub →</a>
+      </div>
+
+      <div class="project-card">
+        <h4>Real-Time Data Processing with Databricks</h4>
+        <p>Implemented Delta Lake pipelines and centralized governance using Unity Catalog.</p>
+        <a href="#">View on GitHub →</a>
+      </div>
+
+      <div class="project-card">
+      <h4>Snowflake Project – Employee Data Processing</h4>
+      <p>Implemented a Snowflake solution on AWS to ingest JSON data from Azure, using Snowpipe for real-time ingestion, Streams & Tasks for synchronization, Materialized Views for analytics, and dynamic masking for data security.</p>
+      <a href="https://github.com/Srilekha-1106/Snowflake-Project" target="_blank">GitHub →</a>
+    </div>
+
+    <div class="project-card">
+      <h4>Online Job Notifier</h4>
+      <p>Created a Python-based application that scrapes job listings from multiple portals using BeautifulSoup & Selenium, 
+         filters them by keywords, and sends instant email alerts for matching positions.</p>
+      <a href="https://github.com/Srilekha-1106/Online-Job-Notifier" target="_blank">View on GitHub →</a>
+    </div>
+
+    <div class="project-card">
+      <h4>WeatherApp</h4>
+      <p>Designed a responsive weather forecasting app using HTML, CSS, JavaScript, and the OpenWeatherMap API, 
+         displaying real-time temperature, humidity, and forecast visuals based on user location.</p>
+      <a href="https://github.com/Srilekha-1106/WeatherApp" target="_blank">View on GitHub →</a>
+    </div>
+
+    <div class="project-card">
+      <h4>Guess the Number</h4>
+      <p>Developed a fun Python-based console game that randomly selects a number and provides hints to guide users 
+         toward the correct answer, showcasing basic logic and user interaction.</p>
+      <a href="https://github.com/Srilekha-1106/Guess-the-Number" target="_blank">View on GitHub →</a>
+    </div>
+    </div>
+  </section>
+
+  <section class="section" id="beyond-the-code">
+  <h3>Beyond the Code 💫</h3>
+  <div class="hero" style="background: linear-gradient(180deg, #ffffff 0%, #f7f6ff 100%); padding: 3rem 10%; border-radius: 12px;">
+    <div class="hero-text" style="flex: 1 1 400px;">
+      <h4>🧶 Crocheting & Creativity</h4>
+      <p>
+        I don’t have any social media accounts — I prefer spending my free time crocheting. 
+        It’s my way to unwind, focus, and bring imagination to life through color and texture. 
+        The patience and attention to detail it takes often remind me of debugging a data pipeline — 
+        both require persistence and creativity to see a beautiful outcome.
+      </p>
+
+      <p>
+        For me, crocheting is more than a hobby — it’s a quiet art of patience and problem-solving. Each stitch builds on the last, 
+        just like each line of code or each transformation in a data pipeline. It’s taught me rhythm, attention to structure, 
+        and the joy of creating something meaningful from scratch. Whether I’m debugging an issue or working on a new crochet pattern, 
+        I find the same sense of flow — that moment where focus meets creativity, and something beautiful takes shape.
+      </p>
+    </div>
+
+    <div class="hero-img" style="flex: 1 1 300px; text-align: center;">
+      <img src=images\crochet.jpeg alt="Crocheting Hobby" 
+           style="width: 350px; height: 450px; border-radius: 16px; object-fit: cover; 
+                  box-shadow: 0 10px 25px rgba(94, 96, 206, 0.2); border: 4px solid #fff;">
+    </div>
+  </div>
+</section>
+
+  <footer id="contact">
+    <h3 style="color:#333; font-size:1.6rem; margin-bottom:1rem;">📬 Let's Connect</h3>
+    <p style="color:#555; margin-bottom:1rem;">
+      Whether it’s about data engineering, creative ideas, or collaboration opportunities — feel free to reach out!
+    </p>
+    <p>📧 <a href="mailto:devineedisrilekha@gmail.com">devineedisrilekha@gmail.com</a></p>
+    <p>💼 <a href="https://www.linkedin.com/in/srilekha-devineedi-608028211/">LinkedIn</a> | 💻 <a href="https://github.com/Srilekha-1106">GitHub</a></p>
+    <p>© 2025 Srilekha Devineedi</p>
+  </footer>
+</body>
+</html>
