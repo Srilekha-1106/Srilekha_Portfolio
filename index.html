@@ -295,51 +295,55 @@
       font-weight: 500;
     }
 
-    @media (max-width: 768px) {
-      .hero {
-        flex-direction: column;
-        text-align: center;
-      }
+    /* ---------- Crochet gallery (desktop & tablet) ---------- */
+.crochet-gallery {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
 
-      .hero-text {
-        padding-right: 0;
-      }
+.crochet-gallery img {
+  width: 45%;
+  max-width: 380px;
+  aspect-ratio: 3 / 4;              /* keeps both images same shape */
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(94, 96, 206, 0.2);
+  object-fit: cover;
+  object-position: center;
+}
 
-      .hero-img img {
-        width: 80%;
-        height: auto;
-        margin-top: 2rem;
-      }
+/* ---------- Mobile styles ---------- */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
 
-      .crochet-gallery {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 20px;
-        flex-wrap: wrap;
-        margin-top: 2rem;
-      }
-      
-      .crochet-gallery img {
-        width: 45%;
-        height: 350px;
-        border-radius: 12px;
-        box-shadow: 0 8px 20px rgba(94, 96, 206, 0.2);
-        object-fit: cover;
-        object-position: center;
-      }
-      
-      @media (max-width: 768px) {
-        .crochet-gallery {
-          flex-direction: column;       /* stack vertically */
-        }
-      
-        .crochet-gallery img {
-          width: 80%;                   /* make them wider */
-          height: auto;                 /* let height adjust naturally */
-          max-width: 420px;
-        }
-      }
+  .hero-text {
+    padding-right: 0;
+  }
+
+  .hero-img img {
+    width: 80%;
+    height: auto;
+    margin-top: 2rem;
+  }
+
+  .crochet-gallery {
+    flex-direction: column;         /* stack images */
+  }
+
+  .crochet-gallery img {
+    width: 80%;
+    max-width: 420px;
+    height: auto;                   /* let height adjust naturally */
+    aspect-ratio: auto;
+  }
+}
+
 
     }
   </style>
@@ -536,18 +540,13 @@
       </p>
     </div>
 
-    <div class="crochet-gallery">
-      <img src="images/crochet1.jpeg"
-              alt="Crochet work collage"
-              style="width: 45%; height: 350px; border-radius: 12px; 
-                      box-shadow: 0 8px 20px rgba(94, 96, 206, 0.2); 
-                      object-fit: cover; object-position: center;">
-      <img src="images/crochet2.jpeg"
-          alt="Srilekha crocheting outdoors"
-          style="width: 45%; height: 350px; border-radius: 12px; 
-                  box-shadow: 0 8px 20px rgba(94, 96, 206, 0.2); 
-                  object-fit: cover; object-position: top;">
-    </div>
+<div class="crochet-gallery">
+  <img src="images/crochet1.jpeg"
+       alt="Crochet work collage">
+
+  <img src="images/crochet2.jpeg"
+       alt="Srilekha crocheting outdoors">
+</div>
 
     
   </div>
@@ -564,6 +563,7 @@
   </footer>
 </body>
 </html>
+
 
 
 
