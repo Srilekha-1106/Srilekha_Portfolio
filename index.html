@@ -3,601 +3,159 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Srilekha Devineedi | .NET Developer Portfolio</title>
+  <meta name="description" content="Srilekha Devineedi | ServiceNow, IT service management, systems engineering, and enterprise application support portfolio.">
+  <meta name="theme-color" content="#0b1729">
+  <title>Srilekha Devineedi | ServiceNow & Systems Engineering</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
-    }
-
-    body {
-      background-color: #fcfcfe;
-      color: #222;
-      line-height: 1.6;
-      font-size: 16px;
-    }
-
-    /* ---------- Header (Gradient) ---------- */
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 10%;
-      background: linear-gradient(90deg, #4b4cc0, #6c6de0);
-      color: white;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    nav h1 {
-      font-size: 1rem;
-      letter-spacing: 2px;
-      font-weight: 600;
-      color: white;
-    }
-
-    nav ul {
-      display: flex;
-      list-style: none;
-      gap: 2rem;
-    }
-
-    nav ul li a {
-      text-decoration: none;
-      color: white;
-      font-weight: 400;
-      transition: opacity 0.3s ease;
-    }
-
-    nav ul li a:hover {
-      opacity: 0.8;
-    }
-
-    .hero {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      padding: 4rem 10%;
-      background: linear-gradient(180deg, #f3f4ff 0%, #ffffff 90%);
-    }
-
-    .hero-text {
-      flex: 1 1 400px;
-      padding-right: 2rem;
-    }
-
-    .hero-text h2 {
-      font-size: 2.2rem;
-      margin-bottom: 1.2rem;
-      color: #222;
-    }
-
-    .hero-text p {
-      margin-bottom: 1.2rem;
-      color: #333;
-    }
-
-    /* --- Button Styles --- */
-    .btn-primary,
-    .btn-outline {
-      display: inline-block;
-      padding: 0.6rem 1.2rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      margin-right: 1rem;
-      border: 1px solid #5e60ce;
-      color: #5e60ce;
-      background-color: transparent;
-    }
-
-    .btn-primary:hover,
-    .btn-outline:hover {
-      background-color: #5e60ce;
-      color: white;
-      transform: scale(1.05);
-      box-shadow: 0 5px 12px rgba(94, 96, 206, 0.3);
-    }
-
-    .hero-img {
-      flex: 1 1 300px;
-      text-align: center;
-    }
-
-    .hero-img img {
-      width: 550px;
-      height: 420px;
-      border-radius: 16px;
-      object-fit: cover;
-      box-shadow: 0 10px 25px rgba(94, 96, 206, 0.25);
-      border: 5px solid #ffffff;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .hero-img img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 12px 30px rgba(94, 96, 206, 0.35);
-    }
-
-    .section {
-      padding: 3rem 10%;
-      border-top: 1px solid #eee;
-    }
-
-    .section h3 {
-      font-size: 1.6rem;
-      margin-bottom: 1.5rem;
-      color: #333;
-    }
-
-    /* ---------- Timeline Style ---------- */
-    .timeline {
-      position: relative;
-      margin: 2rem 0;
-      padding-left: 40px;
-    }
-
-    .timeline::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 15px;
-      width: 3px;
-      height: 100%;
-      background: linear-gradient(180deg, #5e60ce, #b197fc);
-      border-radius: 5px;
-    }
-
-    .timeline-item {
-      position: relative;
-      margin-bottom: 2.5rem;
-    }
-
-    .timeline-dot {
-      position: absolute;
-      top: 10px;
-      left: 8px;
-      width: 15px;
-      height: 15px;
-      background-color: #5e60ce;
-      border: 3px solid #fff;
-      border-radius: 50%;
-      box-shadow: 0 0 0 3px rgba(94, 96, 206, 0.2);
-      z-index: 2;
-    }
-
-    .timeline-card {
-      background: #fafaff;
-      border: 1px solid #e6e6fa;
-      padding: 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(94, 96, 206, 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .timeline-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(94, 96, 206, 0.15);
-    }
-
-    .timeline-card h4 {
-      margin-bottom: 0.5rem;
-      color: #222;
-    }
-
-    .timeline-card p {
-      margin-bottom: 0.4rem;
-      color: #444;
-    }
-
-    .timeline-card ul {
-      margin-top: 0.5rem;
-      padding-left: 1.2rem;
-    }
-
-    .timeline-card ul li {
-      color: #333;
-      margin-bottom: 0.3rem;
-    }
-
-    /* ---------- Projects ---------- */
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .project-card {
-      border: 1px solid #e7e7e7;
-      border-radius: 10px;
-      padding: 1.5rem;
-      background-color: #fafaff;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .project-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 4px 15px rgba(94, 96, 206, 0.15);
-    }
-
-    .project-card h4 {
-      margin-bottom: 0.5rem;
-      color: #2b2b2b;
-    }
-
-    .project-card p {
-      margin-bottom: 0.8rem;
-      font-size: 0.95rem;
-      color: #444;
-    }
-
-    .project-card a {
-      text-decoration: none;
-      color: #5e60ce;
-      font-weight: 500;
-    }
-
-    /* ---------- Footer with Contact Form ---------- */
-    footer {
-      text-align: center;
-      padding: 3rem 10%;
-      background: linear-gradient(180deg, #e7e8ff, #ffffff);
-      border-top: 1px solid #ddd;
-      color: #444;
-    }
-
-    footer h3 {
-      color: #333;
-      font-size: 1.6rem;
-      margin-bottom: 1rem;
-    }
-
-    footer form {
-      max-width: 500px;
-      margin: 1.5rem auto;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    footer input, footer textarea {
-      padding: 0.8rem;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 1rem;
-    }
-
-    footer button {
-      background-color: #5e60ce;
-      color: white;
-      border: none;
-      padding: 0.8rem;
-      border-radius: 8px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    footer button:hover {
-      background-color: #4b4cc0;
-    }
-
-    footer a {
-      text-decoration: none;
-      color: #5e60ce;
-      font-weight: 500;
-    }
-
-    /* ---------- Crochet gallery (desktop & tablet) ---------- */
-.crochet-gallery {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-top: 2rem;
-}
-
-.crochet-gallery img {
-  width: 45%;
-  max-width: 380px;
-  aspect-ratio: 3 / 4;              /* keeps both images same shape */
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(94, 96, 206, 0.2);
-  object-fit: cover;
-  object-position: center;
-}
-
-/* ---------- Mobile styles ---------- */
-@media (max-width: 768px) {
-  .hero {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .hero-text {
-    padding-right: 0;
-  }
-
-  .hero-img img {
-    width: 80%;
-    height: auto;
-    margin-top: 2rem;
-  }
-
-  .crochet-gallery {
-    flex-direction: column;         /* stack images */
-  }
-
-  .crochet-gallery img {
-    width: 80%;
-    max-width: 420px;
-    height: auto;                   /* let height adjust naturally */
-    aspect-ratio: auto;
-  }
-}
-
+    :root{--navy:#0b1729;--navy-2:#15263d;--ink:#192b40;--muted:#5b6c7f;--blue:#1973a7;--cyan:#45c7cd;--line:#deebf1;--bg:#f5f9fb;--white:#fff;--shadow:0 12px 38px rgba(20,57,82,.07)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:82px}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 'DM Sans',sans-serif}h1,h2,h3,h4{font-family:Manrope,sans-serif;line-height:1.3;margin-top:0}a{color:var(--blue)}a:focus-visible,button:focus-visible{outline:3px solid var(--cyan);outline-offset:4px}img{max-width:100%;display:block}.container{width:min(1120px,90%);margin:auto}.eyebrow{font-size:.76rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#15849b}.section{padding:78px 0}.section-heading{margin-bottom:32px}.section-heading h2{font-size:clamp(1.7rem,3.5vw,2.5rem);margin:6px 0 10px}.section-heading p{color:var(--muted);max-width:720px;margin:0}
+    .site-nav{background:var(--navy);position:sticky;top:0;z-index:10;border-bottom:1px solid rgba(255,255,255,.12)}.nav-inner{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{color:white;text-decoration:none;font:800 .98rem Manrope,sans-serif;letter-spacing:.07em}.nav-links{display:flex;align-items:center;gap:24px;list-style:none;margin:0;padding:0}.nav-links a{color:#dce8f2;text-decoration:none;font-size:.88rem;font-weight:600}.nav-links a:hover{color:var(--cyan)}
+    .hero{background:radial-gradient(circle at 85% 15%,rgba(69,199,205,.18),transparent 31%),linear-gradient(135deg,#0b1729,#142c46);color:white;padding:88px 0 96px}.hero-grid{display:grid;grid-template-columns:1.35fr .65fr;gap:72px;align-items:center}.hero .eyebrow{color:#78e1e2}.hero h1{font-size:clamp(2.3rem,4.5vw,4.25rem);letter-spacing:-.045em;line-height:1.12;margin:12px 0 20px}.hero .lead{color:#d5e3ed;font-size:1.08rem;max-width:650px}.hero .sublead{color:#a9bfd0;max-width:650px}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.button{display:inline-flex;align-items:center;justify-content:center;border-radius:9px;padding:12px 20px;text-decoration:none;font-weight:700;font-size:.92rem;transition:transform .18s,background .18s}.button:hover{transform:translateY(-2px)}.button-primary{background:var(--cyan);color:#08233a}.button-secondary{border:1px solid #6b849a;color:white}.hero-photo{border:8px solid rgba(255,255,255,.1);border-radius:22px;max-width:315px;width:100%;height:345px;object-fit:cover;margin-inline:auto;box-shadow:0 25px 55px rgba(0,0,0,.3)}.photo-fallback{display:none;color:#e1ecf3;text-align:center;font-size:.9rem}
+    .highlights{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}.highlights span{font-size:.79rem;border:1px solid #36536d;border-radius:100px;padding:6px 12px;color:#c9e7ee}.two-col{display:grid;grid-template-columns:1fr 1fr;gap:25px}.card{background:white;border:1px solid var(--line);border-radius:15px;padding:27px;box-shadow:var(--shadow)}.card p:last-child,.card ul:last-child{margin-bottom:0}.card h3{margin-bottom:13px;font-size:1.17rem}.skill-group{margin-bottom:22px}.skill-group:last-child{margin:0}.skill-group h3{font-size:1rem;margin-bottom:8px}.tags{display:flex;flex-wrap:wrap;gap:8px}.tag{background:#eaf5f9;color:#24516a;border:1px solid #d3e7ef;border-radius:7px;padding:6px 10px;font-size:.84rem;font-weight:600}
+    .experience-list{display:grid;gap:22px}.role{position:relative;background:white;border:1px solid var(--line);border-left:4px solid #32a7bd;border-radius:13px;padding:26px 30px;box-shadow:var(--shadow)}.role-top{display:flex;justify-content:space-between;gap:14px;align-items:start}.role h3{font-size:1.18rem;margin:0 0 5px}.role .org{font-weight:700;color:var(--blue)}.date{color:var(--muted);font-size:.9rem;white-space:nowrap}.role ul{padding-left:20px;margin:16px 0 0}.role li{margin:7px 0}.role li::marker{color:#2499b0}.role .role-focus{font-size:.83rem;color:#397184;font-weight:700;margin-top:6px}
+    .projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.project{display:flex;flex-direction:column}.project .category{color:#15849b;text-transform:uppercase;font-size:.72rem;letter-spacing:.11em;font-weight:800}.project h3{margin:9px 0;font-size:1.07rem}.project p{color:var(--muted);font-size:.92rem;flex:1}.project a{font-weight:700;text-decoration:none}.project a:hover{text-decoration:underline}.education-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.education-grid .school{font-weight:700;color:var(--blue)}.education-grid .meta{font-size:.9rem;color:var(--muted)}.education-grid p{margin:8px 0}
+    .personal{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.gallery img{height:220px;width:100%;object-fit:cover;border-radius:11px}.gallery img:first-child{grid-column:span 2}.gallery img:last-child{grid-column:span 1}.personal p{color:var(--muted)}.cert{display:flex;justify-content:space-between;gap:15px;align-items:center}.cert-note{font-size:.86rem;color:var(--muted)}.status{display:inline-block;background:#fff4da;color:#856019;border-radius:999px;padding:5px 10px;font-size:.78rem;font-weight:800;white-space:nowrap}
+    footer{background:var(--navy);color:white;padding:66px 0 32px;text-align:center}footer h2{font-size:2rem;margin-bottom:8px}footer p{color:#b8cbd9}footer a{color:#7ce1e3;text-decoration:none}footer a:hover{text-decoration:underline}.footer-links{display:flex;justify-content:center;gap:22px;flex-wrap:wrap;margin:24px 0 40px}.copyright{font-size:.8rem;border-top:1px solid #2e455e;padding-top:22px}
+    @media(max-width:950px){.nav-links{gap:12px}.nav-links a{font-size:.8rem}.hero-grid{gap:25px}.projects-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:700px){.site-nav{position:static}.nav-inner{flex-direction:column;padding:16px 0}.nav-links{flex-wrap:wrap;justify-content:center;gap:10px 16px}.hero{padding:55px 0}.hero-grid,.two-col,.education-grid,.personal{grid-template-columns:1fr}.hero-photo{height:270px;max-width:260px}.section{padding:56px 0}.projects-grid{grid-template-columns:1fr}.role-top{display:block}.date{display:block;margin-top:7px}.role{padding:22px}.gallery img{height:170px}.cert{align-items:start;flex-direction:column}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.button{transition:none}}
   </style>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LKT0W3P70P"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-  
-    gtag('config', 'G-LKT0W3P70P');
-  </script>
 </head>
-
 <body>
-  <nav>
-    <h1>SRILEKHA DEVINEEDI</h1>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#beyond-the-code">Beyond the Code</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a class="brand" href="#home">SRILEKHA DEVINEEDI</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
   </nav>
 
-  <!-- UPDATED HERO + EDUCATION + EXPERIENCE (.NET DEVELOPMENT FOCUS) -->
-
-<section class="hero" id="about">
-  <div class="hero-text">
-    <h2>Hello! I'm Srilekha, a .NET Developer based in the USA.</h2>
-    <p>
-      I develop and support enterprise web applications using C#, ASP.NET Core, MVC, Web API, Entity Framework Core, SQL Server, and REST APIs.
-      My work focuses on backend development, API integration, database-driven applications, debugging, and building reliable, maintainable software.
-    </p>
-    <p>
-      I recently graduated with a Master’s in Computer Science from the University of Massachusetts Lowell (Class of 2025),
-      and I’m continuing to strengthen my .NET development skills through hands-on learning, practical application development, and software projects.
-    </p>
-    <a href="https://www.linkedin.com/in/srilekha-devineedi-608028211/" target="_blank" class="btn-primary">View LinkedIn</a>
-    <a href="https://github.com/Srilekha-1106" target="_blank" class="btn-outline">View GitHub</a>
-  </div>
-
-  <div class="hero-img">
-    <img src="images/srilekha.jpeg" alt="Srilekha Devineedi">
-  </div>
-</section>
-
-<section class="section" id="education">
-  <h3>Education</h3>
-  <div class="timeline">
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-card">
-        <h4>🎓 Master of Science in Computer Science</h4>
-        <p><strong>University of Massachusetts Lowell</strong> | Lowell, MA</p>
-        <p><em>August 2023 – May 2025</em></p>
-        <p><strong>GPA:</strong> 3.74 / 4.0</p>
-        <ul>
-          <li>Focused on software development, database systems, and enterprise technologies.</li>
-          <li>Coursework: Algorithms, Database Systems, Data Mining, Operating Systems.</li>
-        </ul>
+  <header class="hero" id="home">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">IT Service Management · ServiceNow · Enterprise Systems</div>
+        <h1>Hi, I'm Srilekha.<br>I connect technology with better workflows.</h1>
+        <p class="lead">Computer Science graduate with experience in ServiceNow Request Catalog work, Flow Designer automation, API integrations, enterprise application support, and IT service management.</p>
+        <p class="sublead">My background spans the State of Wisconsin's Cherwell-to-ServiceNow transition, end-user and application support at Milwaukee County, and cloud-related development support at Logan Data. I'm interested in growing in ServiceNow platform and systems engineering.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#experience">Explore My Experience</a>
+          <a class="button button-secondary" href="https://github.com/Srilekha-1106" target="_blank" rel="noopener noreferrer">GitHub Projects</a>
+        </div>
+        <div class="highlights"><span>ServiceNow Request Catalog</span><span>Flow Designer</span><span>Java & JavaScript</span><span>ITSM</span></div>
+      </div>
+      <div>
+        <img class="hero-photo" src="images/srilekha.jpeg" alt="Portrait of Srilekha Devineedi" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <p class="photo-fallback">Add your existing portrait at images/srilekha.jpeg</p>
       </div>
     </div>
+  </header>
 
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-card">
-        <h4>🎓 Bachelor of Technology in Computer Science & Engineering</h4>
-        <p><strong>Gayatri Vidya Parishad College of Engineering</strong> | Visakhapatnam, India</p>
-        <p><em>June 2019 – May 2023</em></p>
-        <p><strong>GPA:</strong> 9.06 / 10</p>
-        <ul>
-          <li>Focused on database systems, software engineering, and web development.</li>
-          <li>Coursework: DBMS, Data Structures, HTML, CSS, and JavaScript.</li>
-        </ul>
+  <main>
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-heading"><span class="eyebrow">About me</span><h2>Thoughtful support. Practical engineering.</h2></div>
+        <div class="two-col">
+          <div class="card"><h3>My background</h3><p>I'm a Computer Science graduate based in Milwaukee, Wisconsin. I've worked across enterprise IT support, service management processes, and technical teams that maintain applications and internal services.</p><p>During the State of Wisconsin's Cherwell-to-ServiceNow transition, I worked with request catalog processes, workflow improvements, Flow Designer, API-related development, testing, and change management.</p></div>
+          <div class="card"><h3>How I approach problems</h3><p>I enjoy understanding the issue behind a support ticket, tracing where a process breaks down, and working with teammates to improve the user experience.</p><p>My experience investigating overly broad ticket categories and repeated manual reassignment shaped my interest in clearer request catalog design and workflow automation.</p></div>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section class="section" id="experience">
-  <h3>Experience</h3>
-  <div class="timeline">
-
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-card">
-        <h4>💼 IT Support Engineer</h4>
-        <p><strong>Milwaukee County</strong> | Milwaukee, WI, USA</p>
-        <p><em>May 2026 – Present</em></p>
-        <ul>
-          <li>Support and troubleshoot enterprise applications, Windows systems, software installations, user authentication, and application-access issues while documenting technical findings, root causes, and recurring resolutions.</li>
-          <li>Investigate application-related issues using system logs, SQL queries, administrative tools, and endpoint diagnostics, collaborating with development, infrastructure, and security teams to resolve complex incidents.</li>
-          <li>Use PowerShell, SCCM/MECM, Active Directory, Microsoft 365, and enterprise management tools to support application environments, streamline operational processes, and improve system reliability.</li>
-        </ul>
+    <section class="section" id="skills" style="background:#eefaFC">
+      <div class="container">
+        <div class="section-heading"><span class="eyebrow">Technical foundation</span><h2>Skills & technologies</h2><p>A combination of platform experience, troubleshooting, programming fundamentals, and development collaboration.</p></div>
+        <div class="two-col">
+          <div class="card">
+            <div class="skill-group"><h3>ServiceNow & ITSM</h3><div class="tags"><span class="tag">ServiceNow</span><span class="tag">Request Catalog</span><span class="tag">Flow Designer</span><span class="tag">Workflow Automation</span><span class="tag">REST API Development</span><span class="tag">Cherwell</span><span class="tag">Incident & Request Management</span><span class="tag">Change Management</span></div></div>
+            <div class="skill-group"><h3>Programming & testing</h3><div class="tags"><span class="tag">Java</span><span class="tag">JavaScript</span><span class="tag">HTML / CSS</span><span class="tag">DBMS Fundamentals</span><span class="tag">Application Testing</span></div></div>
+          </div>
+          <div class="card">
+            <div class="skill-group"><h3>Enterprise systems & support</h3><div class="tags"><span class="tag">Windows 10/11</span><span class="tag">Active Directory</span><span class="tag">Microsoft 365</span><span class="tag">SCCM / MECM</span><span class="tag">Application Troubleshooting</span><span class="tag">Access Management</span></div></div>
+            <div class="skill-group"><h3>Tools & teamwork</h3><div class="tags"><span class="tag">GitHub</span><span class="tag">Azure DevOps</span><span class="tag">Agile</span><span class="tag">Requirements Gathering</span><span class="tag">Technical Documentation</span><span class="tag">Cloud Technologies</span></div></div>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-card">
-        <h4>💼 IS Systems Development Specialist</h4>
-        <p><strong>State of Wisconsin – Department of Administration (DOA)</strong> | Remote, USA</p>
-        <p><em>Dec 2025 – May 2026</em></p>
-        <ul>
-          <li>Developed and supported enterprise application functionality and automated workflows using C#, ASP.NET Core, REST APIs, JSON, SQL Server, and integration services to improve business-process efficiency and application performance.</li>
-          <li>Built and maintained backend logic, validation rules, approval workflows, notifications, data synchronization processes, and database operations using SQL, T-SQL, LINQ, and API integrations.</li>
-          <li>Troubleshot application defects and integration failures by analyzing logs, API requests and responses, database records, and system dependencies while supporting testing, deployment, and source-control activities using Git and Azure DevOps.</li>
-          <li>Developed and tested reusable application components and API-driven integrations while following coding standards, version-control practices, and Agile development processes.</li>
-        </ul>
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section-heading"><span class="eyebrow">Professional journey</span><h2>Experience</h2><p>Work across platform processes, application troubleshooting, development collaboration, and user support.</p></div>
+        <div class="experience-list">
+          <article class="role"><div class="role-top"><div><h3>IT Support Engineer <span style="font-weight:500">(Contract)</span></h3><div class="org">Milwaukee County · Milwaukee, WI</div><div class="role-focus">Enterprise support · Incident resolution · Endpoint systems</div></div><span class="date">May 2026 – Present</span></div><ul>
+            <li>Troubleshoot enterprise applications, Windows endpoints, access issues, and network connectivity problems through structured diagnostic checks.</li>
+            <li>Investigate browser-related issues and application configuration problems; document findings and coordinate with technical teams when escalation is needed.</li>
+            <li>Support Active Directory accounts and access requests, and use SCCM/MECM and endpoint tools for software and device support.</li>
+            <li>Manage service requests, communicate with users, and maintain clear technical documentation.</li>
+          </ul></article>
+          <article class="role"><div class="role-top"><div><h3>IS Systems Development Specialist</h3><div class="org">State of Wisconsin, Department of Administration · Remote</div><div class="role-focus">ServiceNow Request Catalog · Flow Designer · ITSM workflows</div></div><span class="date">Dec 2025 – May 2026</span></div><ul>
+            <li>Supported the Cherwell-to-ServiceNow transition, working with Request Catalog processes, service management workflows, and request classification.</li>
+            <li>Analyzed generic Cherwell incident/request categories that caused tickets to be repeatedly reassigned, and supported workflow improvements to reduce routing friction.</li>
+            <li>Collaborated with help desk and technical teams to gather requirements and support ServiceNow catalog and routing improvements.</li>
+            <li>Worked on ServiceNow Flow Designer automation and API development/integrations in support of request catalog solutions.</li>
+            <li>Participated in catalog testing and change management, documenting workflow changes, technical requirements, and testing findings.</li>
+          </ul></article>
+          <article class="role"><div class="role-top"><div><h3>Data Engineer Intern</h3><div class="org">Logan Data · Remote</div><div class="role-focus">Cloud operations · Agile collaboration · Development support</div></div><span class="date">Jul 2025 – Oct 2025</span></div><ul>
+            <li>Supported application workflows and cloud operations, investigating technical issues and documenting findings.</li>
+            <li>Worked in an Agile environment to track tasks, review issues, and support iterative development.</li>
+            <li>Used GitHub and Azure DevOps for development workflows, issue tracking, and team collaboration.</li>
+            <li>Helped investigate application integrations and validate data-related issues in cloud environments.</li>
+          </ul></article>
+          <article class="role"><div class="role-top"><div><h3>Testing Center Analyst</h3><div class="org">University of Massachusetts Lowell · Lowell, MA</div><div class="role-focus">Application support · User assistance</div></div><span class="date">Sep 2023 – May 2025</span></div><ul>
+            <li>Provided technical assistance to students and staff using computer systems and testing applications.</li>
+            <li>Resolved login and application issues, documented incidents, and supported smooth testing operations.</li>
+          </ul></article>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-card">
-        <h4>💼 Software Engineer Intern</h4>
-        <p><strong>Logan Data Inc.</strong> | Remote, USA</p>
-        <p><em>July 2025 – Nov 2025</em></p>
-        <ul>
-          <li>Worked on the Associated Bank Corp project, developing and supporting C#/.NET application components used for banking-related data processing, backend services, and application-integration workflows.</li>
-          <li>Developed and tested application functionality using ASP.NET Core, REST APIs, SQL Server, LINQ, JSON, and database queries to support reliable communication between applications and backend systems.</li>
-          <li>Investigated application and data-processing failures by reviewing logs, API responses, database records, and system dependencies, documenting root-cause findings and technical resolutions.</li>
-          <li>Collaborated with business analysts to translate functional requirements into scalable .NET application features and technical solutions.</li>
-        </ul>
+    <section class="section" id="projects" style="background:#eef5f8">
+      <div class="container">
+        <div class="section-heading"><span class="eyebrow">Hands-on work</span><h2>Selected GitHub projects</h2><p>Personal and academic projects showing my interest in applications, integrations, cloud data, and problem solving. These are separate from my professional ServiceNow work.</p></div>
+        <div class="projects-grid">
+          <article class="card project"><span class="category">API & web development</span><h3>WeatherApp</h3><p>Responsive weather application using HTML, CSS, JavaScript, and the OpenWeatherMap API.</p><a href="https://github.com/Srilekha-1106/WeatherApp" target="_blank" rel="noopener noreferrer">View repository →</a></article>
+          <article class="card project"><span class="category">Automation</span><h3>Online Job Notifier</h3><p>Python project that collects job listings, filters them by keywords, and sends email notifications.</p><a href="https://github.com/Srilekha-1106/Online-Job-Notifier" target="_blank" rel="noopener noreferrer">View repository →</a></article>
+          <article class="card project"><span class="category">Low-code & reporting</span><h3>Client Transaction & Revenue Tracking</h3><p>Power Apps and Power BI project focused on tracking transactions and reporting.</p><a href="https://github.com/Srilekha-1106/Client-Transaction-Revenue-Tracking-Solution-with-Microsoft-Power-Platform" target="_blank" rel="noopener noreferrer">View repository →</a></article>
+          <article class="card project"><span class="category">Azure & data workflows</span><h3>End-to-End Data Integration</h3><p>Data integration and transformation project using Azure Data Factory, Azure SQL, and Power BI.</p><a href="https://github.com/Srilekha-1106/End-to-End-Data-Integration-and-Transformation-Solution-with-Azure-Data-Factory-" target="_blank" rel="noopener noreferrer">View repository →</a></article>
+          <article class="card project"><span class="category">Cloud data processing</span><h3>Azure Synapse Analytics</h3><p>Data processing and analysis project using PySpark and dashboards.</p><a href="https://github.com/Srilekha-1106/synapseProject" target="_blank" rel="noopener noreferrer">View repository →</a></article>
+          <article class="card project"><span class="category">Cloud data platforms</span><h3>Databricks & Delta Lake</h3><p>Exploration of data processing with Delta Lake and Unity Catalog.</p><a href="https://github.com/Srilekha-1106/databricksProject" target="_blank" rel="noopener noreferrer">View repository →</a></article>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-card">
-        <h4>💼 Software Engineer</h4>
-        <p><strong>Yannick Tech Systems</strong> | Hyderabad, India</p>
-        <p><em>July 2021 – June 2023</em></p>
-        <ul>
-          <li>Worked on the Standard Chartered project, developing and maintaining enterprise web applications using C#, ASP.NET Core, MVC, Web API, Entity Framework Core, LINQ, and SQL Server to support scalable banking and business applications.</li>
-          <li>Designed and developed RESTful APIs, controllers, service-layer components, business logic, model validation, and database functionality while applying object-oriented programming and reusable coding practices.</li>
-          <li>Created and optimized SQL queries and stored procedures, integrated internal and external APIs, debugged application defects using Visual Studio and Postman, and managed source-code changes using Git.</li>
-        </ul>
+    <section class="section" id="education">
+      <div class="container">
+        <div class="section-heading"><span class="eyebrow">Education & learning</span><h2>My academic foundation</h2></div>
+        <div class="education-grid">
+          <div class="card"><h3>Master of Science in Computer Science</h3><div class="school">University of Massachusetts Lowell</div><div class="meta">Aug 2023 – May 2025 · GPA: 3.74/4.0</div><p>Coursework: Algorithms, Database Systems, Advanced Database Systems, Data Science, Data Mining, Operating Systems.</p></div>
+          <div class="card"><h3>Bachelor of Technology in Computer Science & Engineering</h3><div class="school">Gayatri Vidya Parishad College of Engineering</div><div class="meta">Jun 2019 – May 2023 · GPA: 9.06/10</div><p>Coursework: DBMS, Data Structures, Java, and Web Development using HTML, CSS, and JavaScript.</p></div>
+        </div>
+        <div class="card cert" style="margin-top:20px"><div><h3 style="margin-bottom:5px">ServiceNow Certified System Administrator (CSA)</h3><div class="cert-note">Certification preparation</div></div><span class="status">In progress</span></div>
       </div>
-    </div>
+    </section>
 
-  </div>
-</section>
-
-  <section class="section" id="projects">
-    <h3>Selected Projects</h3>
-    <div class="projects">
-      <div class="project-card">
-        <h4>End-to-End Data Integration & Transformation</h4>
-        <p>Built automated ETL pipelines and Power BI dashboards using Azure Data Factory and Azure SQL.</p>
-        <a href="https://github.com/Srilekha-1106/End-to-End-Data-Integration-and-Transformation-Solution-with-Azure-Data-Factory-" target="_blank">View on GitHub →</a>
+    <section class="section" id="beyond-the-code" style="background:#eef5f8">
+      <div class="container personal">
+        <div><span class="eyebrow">Beyond technology</span><h2>Creativity, one stitch at a time</h2><p>Outside work, I enjoy crocheting. It's a creative outlet that rewards patience, attention to detail, and working through challenges one step at a time.</p><p>It's a nice balance to my technical work, and another way I enjoy making something useful and meaningful from scratch.</p></div>
+        <div class="gallery" aria-label="Crochet gallery"><img src="images/crochet1.jpeg" alt="Crochet creations" loading="lazy"><img src="images/crochet2.jpeg" alt="Crochet hobby photo" loading="lazy"><img src="images/crochet3.jpeg" alt="Crochet hobby photo" loading="lazy"></div>
       </div>
-
-      <div class="project-card">
-        <h4>Client Transaction & Revenue Tracking</h4>
-        <p>Developed a Power Apps + Power BI solution enabling real-time tracking and financial reporting.</p>
-        <a href="https://github.com/Srilekha-1106/Client-Transaction-Revenue-Tracking-Solution-with-Microsoft-Power-Platform" target="_blank">View on GitHub →</a>
-      </div>
-
-      <div class="project-card">
-        <h4>Data Processing & Analysis Using Azure Synapse</h4>
-        <p>Transformed raw datasets with PySpark and built dashboards to analyze unemployment trends.</p>
-        <a href="https://github.com/Srilekha-1106/synapseProject" target="_blank">View on GitHub →</a>
-      </div>
-
-      <div class="project-card">
-        <h4>Real-Time Data Processing with Databricks</h4>
-        <p>Implemented Delta Lake pipelines and centralized governance using Unity Catalog.</p>
-        <a href="https://github.com/Srilekha-1106/databricksProject" target="_blank">View on GitHub →</a>
-      </div>
-
-      <div class="project-card">
-      <h4>Snowflake Project – Employee Data Processing</h4>
-      <p>Implemented a Snowflake solution on AWS to ingest JSON data from Azure, using Snowpipe for real-time ingestion, Streams & Tasks for synchronization, Materialized Views for analytics, and dynamic masking for data security.</p>
-      <a href="https://github.com/Srilekha-1106/Snowflake-Project" target="_blank">GitHub →</a>
-    </div>
-
-    <div class="project-card">
-      <h4>Online Job Notifier</h4>
-      <p>Created a Python-based application that scrapes job listings from multiple portals using BeautifulSoup & Selenium, 
-         filters them by keywords, and sends instant email alerts for matching positions.</p>
-      <a href="https://github.com/Srilekha-1106/Online-Job-Notifier" target="_blank">View on GitHub →</a>
-    </div>
-
-    <div class="project-card">
-      <h4>WeatherApp</h4>
-      <p>Designed a responsive weather forecasting app using HTML, CSS, JavaScript, and the OpenWeatherMap API, 
-         displaying real-time temperature, humidity, and forecast visuals based on user location.</p>
-      <a href="https://github.com/Srilekha-1106/WeatherApp" target="_blank">View on GitHub →</a>
-    </div>
-
-    <div class="project-card">
-      <h4>Guess the Number</h4>
-      <p>Developed a fun Python-based console game that randomly selects a number and provides hints to guide users 
-         toward the correct answer, showcasing basic logic and user interaction.</p>
-      <a href="https://github.com/Srilekha-1106/Guess-the-Number" target="_blank">View on GitHub →</a>
-    </div>
-    </div>
-  </section>
-
-<section class="section" id="beyond-the-code">
-  <h3>Beyond the Code 💫</h3>
-  <div class="hero" style="background: linear-gradient(180deg, #ffffff 0%, #f7f6ff 100%); padding: 3rem 10%; border-radius: 12px;">
-    <div class="hero-text" style="flex: 1 1 400px;">
-      <h4>🧶 Crocheting & Creativity</h4>
-      <p>
-        I don’t use many social media accounts. I prefer spending my free time crocheting.
-        It’s my way to unwind, focus, and bring imagination to life through color and texture.
-        The patience and attention to detail it takes often remind me of software development and debugging.
-        Both require structure, consistency, and a clear end goal.
-      </p>
-
-      <p>
-        For me, crocheting is more than a hobby. It’s a quiet art of patience and problem-solving.
-        Each stitch builds on the last, much like developing an application one component at a time.
-        It has taught me rhythm, attention to structure, and the satisfaction of creating something reliable from scratch.
-        Whether I’m refining a crochet pattern or debugging an application, I enjoy the same feeling of turning complexity into clarity.
-      </p>
-    </div>
-
-<div class="crochet-gallery">
-  <img src="images/crochet1.jpeg"
-       alt="Crochet work collage">
-
-  <img src="images/crochet2.jpeg"
-       alt="Srilekha crocheting outdoors">
-
-  <img src="images/crochet3.jpeg"
-       alt="Srilekha crocheting outdoors">
-</div>
-
-    
-  </div>
-</section>
+    </section>
+  </main>
 
   <footer id="contact">
-    <h3 style="color:#333; font-size:1.6rem; margin-bottom:1rem;">📬 Let's Connect</h3>
-    <p style="color:#555; margin-bottom:1rem;">
-      Whether it’s about .NET development, software projects, creative ideas, or collaboration opportunities, feel free to reach out!
-    </p>
-    <p>📧 <a href="mailto:devineedisrilekha@gmail.com" target="_blank">devineedisrilekha@gmail.com</a></p>
-    <p>💼 <a href="https://www.linkedin.com/in/srilekha-devineedi-608028211/" target="_blank">LinkedIn</a> | 💻 <a href="https://github.com/Srilekha-1106">GitHub</a></p>
-    <p>© 2025 Srilekha Devineedi</p>
+    <div class="container"><span class="eyebrow">Let's connect</span><h2>Interested in collaborating?</h2><p>I'm open to conversations about ServiceNow, systems engineering, enterprise applications, and related opportunities.</p>
+      <div class="footer-links"><a href="mailto:devineedisrilekha@gmail.com">Email me</a><a href="https://www.linkedin.com/in/srilekha-devineedi-608028211/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://github.com/Srilekha-1106" target="_blank" rel="noopener noreferrer">GitHub</a></div>
+      <p class="copyright">© <span id="year">2026</span> Srilekha Devineedi</p>
+    </div>
   </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
