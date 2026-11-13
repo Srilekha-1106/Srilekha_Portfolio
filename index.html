@@ -22,6 +22,15 @@
     @media(max-width:950px){.nav-links{gap:12px}.nav-links a{font-size:.8rem}.hero-grid{gap:25px}.projects-grid{grid-template-columns:repeat(2,1fr)}}
     @media(max-width:700px){.site-nav{position:static}.nav-inner{flex-direction:column;padding:16px 0}.nav-links{flex-wrap:wrap;justify-content:center;gap:10px 16px}.hero{padding:55px 0}.hero-grid,.two-col,.education-grid,.personal{grid-template-columns:1fr}.hero-photo{height:270px;max-width:260px}.section{padding:56px 0}.projects-grid{grid-template-columns:1fr}.role-top{display:block}.date{display:block;margin-top:7px}.role{padding:22px}.gallery img{height:170px}.cert{align-items:start;flex-direction:column}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.button{transition:none}}
+
+    /* Crochet gallery fix: preserve entire original photos without cropping or wrapping. */
+    #beyond-the-code .personal{display:block;}
+    #beyond-the-code .personal > div:first-child{max-width:760px;margin-bottom:28px;}
+    #beyond-the-code .gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:start;gap:16px;width:100%;}
+    #beyond-the-code .gallery img,
+    #beyond-the-code .gallery img:first-child,
+    #beyond-the-code .gallery img:last-child{grid-column:auto;width:100%;height:auto;max-height:none;object-fit:contain;object-position:center top;border-radius:12px;}
+    @media(max-width:700px){#beyond-the-code .gallery{grid-template-columns:1fr;gap:18px;}#beyond-the-code .gallery img{max-width:480px;margin-inline:auto;}}
   </style>
 </head>
 <body>
